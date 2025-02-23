@@ -41,48 +41,17 @@
     </div>
   </div>
 </nav>
-<div class="row">
-    <div class="col-3">
-      <ul class="list-group text-center mt-4">
-      <li class="list-group-item active" aria-current="true">Carmodels</li>
-      {% for item in carmodel %}
-        <li class="list-group-item"><a href="/app/carmodel/{{item.pk}}">{{item.title}}</a></li>
-      {% endfor %}
-      </ul>
-    </div>
-    <div class="col-9 ">
-      {% for item in cars %}
-      <div class="card mt-4">
-        <div class="card-header">
-        {{item.carmodel}}
-        </div>
-        <div class="card-body ">
-          <div class="row">
-            <div class="col-7.5">
-            {% if item.photo %}
-            <img src="{{item.photo.url}}" alt="" width="800">
-            {% else %}
-            <img src="https://picsum.photos/200" alt="">
-            {% endif %}
-            </div>
-            <div class="col-4.5">
-            <h5 class="card-title">{{item.title}}</h5>
-            <p class="card-text">{{item.color}}</p>
-            <p class="card-text">{{item.ot_kuchi}}</p>
-            <p class="card-text">{{item.year}}</p>
-            <p class="card-text">{{item.price}}</p>
-            <p class="card-text">{{item.context |safe|linebreaks|truncatewords:18}}</p>
-            </div>
-         </div>
-       <a href="{% url 'batch_all' item.pk %}" class="btn btn-primary mt-4">Batafsil</a>
-       <div class="card-footer text-muted">
-        {{item.created_ed}}
-        </div>
-      {% endfor %}
-    </div>
- </div>
-    </div>
+{% for item in carmodels %}
+<div class="card mb-3">
+  <img src="#" class="card-img-top" alt="">
+  <div class="card-body">
+    <h5 class="card-title">{{item.title}}</h5>
+    <p class="card-text">{{item.birth_date}}</p>
+    <p class="card-text">{{item.context}}</p>
+    <p class="card-text"><small class="text-muted">{{item.created_ed}}</small></p>
+  </div>
 </div>
+{% endfor %}
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

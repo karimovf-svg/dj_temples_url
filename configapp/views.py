@@ -29,3 +29,11 @@ def batch_all(request, car_id):
         "car": car
     }
     return render(request,'batch_all.html', context=context)
+
+def carmodels(request):
+    carmodels = Carmodel.objects.all()
+
+    context = {
+        "carmodels": carmodels,
+    }
+    return render(request,'carmodels.html', context=context)
