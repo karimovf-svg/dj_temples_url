@@ -43,8 +43,8 @@
 </nav>
 {% for item in carmodels %}
 <div class="card mb-3">
-  <img src="#" class="card-img-top" alt="">
-  <div class="card-body">
+  <img src="{{ item.photo.url }}" class="card-img-top d-block mx-auto" alt="" style="width: 600px; height: auto;">
+      <div class="card-body">
     <h5 class="card-title">{{item.title}}</h5>
     <p class="card-text">{{item.birth_date}}</p>
     <p class="card-text">{{item.context}}</p>
